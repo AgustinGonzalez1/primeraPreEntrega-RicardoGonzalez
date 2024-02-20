@@ -17,10 +17,15 @@ def login_user(username, password):
         return {"message": "Wrong password"}
   return {"message": "User not found"}
 
+def read_data():
+  for user in users:
+    print(f"Username: {user['username']}, Password: {user['password']}")
+
 while True:
   print("1. Register")
   print("2. Login")
-  print("3. Exit")
+  print("3. Read Data")
+  print("4. Exit")
   choice = input("Enter your choice: ")
   if choice == "1":
     username = input("Enter username: ")
@@ -51,5 +56,11 @@ while True:
         print("Welcome, " + username)
         break
     break
-  else:
+  elif choice == "3":
+    read_data()
+  elif choice == "4":
+    print("Exiting...")
     break
+  else:
+    print("Invalid choice")
+    continue
